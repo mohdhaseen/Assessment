@@ -20,15 +20,18 @@ class ItemFragmentViewModel(private val repository: Repository) : ViewModel() {
     val shipmentStateLiveData: LiveData<ItemFragmentViewState>
         get() = shipmentStateMutableLiveData
 
-    fun getMostViewedArticles() {
+    fun getMostViewedArticles(apiKey: String) {
         executeState(ItemFragmentViewState.ShowLoader)
-        callApi()
+        callApi(apiKey)
     }
-    private fun callApi() {
-        disposables.add(repository.getMostViewedArticles()
+
+    private fun callApi(apiKey: String) {
+        disposables.add(
+            repository.getMostViewedArticles(apiKey)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(this::onSuccess, this::onError))
+                .subscribe(this::onSuccess, this::onError)
+        )
     }
 
     private fun onSuccess(response: Response) {
@@ -41,7 +44,7 @@ class ItemFragmentViewModel(private val repository: Repository) : ViewModel() {
         executeState(ItemFragmentViewState.HandleError(throwable))
     }
 
-    fun executeState(state: ItemFragmentViewState) {
+    private fun executeState(state: ItemFragmentViewState) {
         shipmentStateMutableLiveData.value = state
     }
 

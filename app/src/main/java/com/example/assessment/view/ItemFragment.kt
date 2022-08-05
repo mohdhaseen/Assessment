@@ -21,6 +21,7 @@ import com.example.assessment.viewmodel.ItemFragmentViewModel
  */
 class ItemFragment : Fragment() {
 
+    val apiKey = "j0XjaRWTD643A1dfnomojk6ijDpn3NAO"// this is not the place to put api key altough
     companion object {
         fun getInstance(): ItemFragment {
             return ItemFragment()
@@ -61,7 +62,7 @@ class ItemFragment : Fragment() {
     private fun loadUI(response: Response) {
         with(binding.list) {
             layoutManager = LinearLayoutManager(context)
-            adapter = MyItemRecyclerViewAdapter(response.results)
+            adapter = response.results?.let { MyItemRecyclerViewAdapter(it) }
         }
 
     }
@@ -81,7 +82,7 @@ class ItemFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initViewModel()
         addObserver()
-        viewModel.getMostViewedArticles()
+        viewModel.getMostViewedArticles(apiKey)
     }
 
 }

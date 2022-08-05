@@ -6,7 +6,6 @@ import com.example.assessment.R
 
 class MainActivity : AppCompatActivity() {
 
-    val apiKey = "j0XjaRWTD643A1dfnomojk6ijDpn3NAO"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

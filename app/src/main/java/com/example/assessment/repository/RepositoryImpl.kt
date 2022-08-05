@@ -11,7 +11,7 @@ import io.reactivex.Single
 class RepositoryImpl : Repository {
     private val shipmentApi = ApiHandler.API
 
-    override fun getMostViewedArticles(): Single<Response> {
-        return shipmentApi.getMostViewedArticles()
+    override fun getMostViewedArticles(apiKey: String): Single<Response> {
+        return shipmentApi.getMostViewedArticles(apiKey)
     }
 }

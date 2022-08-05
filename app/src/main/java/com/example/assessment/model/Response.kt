@@ -1,8 +1,8 @@
 package com.example.assessment.model
 
 data class Response(
-    val copyright: String,
-    val num_results: Int,
-    val results: List<Result>,
-    val status: String
+    val copyright: String? = null,
+    val num_results: Int = 0,
+    val results: List<Result>? = null,
+    val status: String? = null
 )
