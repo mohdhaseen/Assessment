@@ -1,6 +1,6 @@
-package com.example.assessment
+package com.example.sampleproject
 
-import com.example.assessment.model.Response
+import com.example.sampleproject.model.Response
 
 /**
  * @author Mohd Haseen
@@ -12,6 +12,8 @@ sealed class ItemFragmentViewState {
     object ShowLoader : ItemFragmentViewState()
 
     object HideLoader : ItemFragmentViewState()
+
+    object OnCleared : ItemFragmentViewState()
 
     data class LoadData(val response: Response) : ItemFragmentViewState()
 

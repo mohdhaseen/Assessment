@@ -1,4 +1,4 @@
-package com.example.assessment.model
+package com.example.sampleproject.model
 
 data class MediaMetadata(
     val format: String,

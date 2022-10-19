@@ -1,12 +1,12 @@
-package com.example.assessment
+package com.example.sampleproject
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 
-import com.example.assessment.databinding.FragmentItemBinding
-import com.example.assessment.model.Result
+import com.example.sampleproject.databinding.FragmentItemBinding
+import com.example.sampleproject.model.Result
 
 
 class MyItemRecyclerViewAdapter(

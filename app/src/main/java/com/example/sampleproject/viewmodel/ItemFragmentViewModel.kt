@@ -1,11 +1,12 @@
-package com.example.assessment.viewmodel
+package com.example.sampleproject.viewmodel
 
+import androidx.annotation.RestrictTo
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.assessment.ItemFragmentViewState
-import com.example.assessment.model.Response
-import com.example.assessment.repository.Repository
+import com.example.sampleproject.ItemFragmentViewState
+import com.example.sampleproject.model.Response
+import com.example.sampleproject.repository.Repository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -15,10 +16,10 @@ import io.reactivex.schedulers.Schedulers
  */
 class ItemFragmentViewModel(private val repository: Repository) : ViewModel() {
 
-    private val disposables: CompositeDisposable by lazy { CompositeDisposable() }
-    private val shipmentStateMutableLiveData = MutableLiveData<ItemFragmentViewState>()
-    val shipmentStateLiveData: LiveData<ItemFragmentViewState>
-        get() = shipmentStateMutableLiveData
+    public val disposables = CompositeDisposable()
+    private val mutableLiveData = MutableLiveData<ItemFragmentViewState>()
+    val liveData: LiveData<ItemFragmentViewState>
+        get() = mutableLiveData
 
     fun getMostViewedArticles(apiKey: String) {
         executeState(ItemFragmentViewState.ShowLoader)
@@ -45,11 +46,13 @@ class ItemFragmentViewModel(private val repository: Repository) : ViewModel() {
     }
 
     private fun executeState(state: ItemFragmentViewState) {
-        shipmentStateMutableLiveData.value = state
+        mutableLiveData.value = state
     }
 
-    override fun onCleared() {
+    @RestrictTo(RestrictTo.Scope.TESTS)
+    public override fun onCleared() {
         super.onCleared()
         disposables.clear()
+        executeState(ItemFragmentViewState.OnCleared)
     }
 }

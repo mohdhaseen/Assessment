@@ -1,4 +1,4 @@
-package com.example.assessment.network
+package com.example.sampleproject.network
 
 import android.content.Context
 import retrofit2.Retrofit

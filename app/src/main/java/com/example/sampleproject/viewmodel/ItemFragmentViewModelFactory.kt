@@ -2,8 +2,8 @@ package com.aranoah.healthkart.plus.pharmacy.shipmentv2
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.assessment.repository.RepositoryImpl
-import com.example.assessment.viewmodel.ItemFragmentViewModel
+import com.example.sampleproject.repository.RepositoryImpl
+import com.example.sampleproject.viewmodel.ItemFragmentViewModel
 
 
 /**

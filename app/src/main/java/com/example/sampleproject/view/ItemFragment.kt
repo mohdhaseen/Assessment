@@ -1,4 +1,4 @@
-package com.example.assessment.view
+package com.example.sampleproject.view
 
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.aranoah.healthkart.plus.pharmacy.shipmentv2.ItemFragmentViewModelFactory
-import com.example.assessment.ItemFragmentViewState
-import com.example.assessment.MyItemRecyclerViewAdapter
-import com.example.assessment.databinding.FragmentItemListBinding
-import com.example.assessment.model.Response
-import com.example.assessment.viewmodel.ItemFragmentViewModel
+import com.example.sampleproject.ItemFragmentViewState
+import com.example.sampleproject.MyItemRecyclerViewAdapter
+import com.example.sampleproject.databinding.FragmentItemListBinding
+import com.example.sampleproject.model.Response
+import com.example.sampleproject.viewmodel.ItemFragmentViewModel
 
 /**
  * @author Mohd Haseen
@@ -21,7 +21,7 @@ import com.example.assessment.viewmodel.ItemFragmentViewModel
  */
 class ItemFragment : Fragment() {
 
-    val apiKey = "j0XjaRWTD643A1dfnomojk6ijDpn3NAO"// this is not the place to put api key altough
+    val apiKey = "j0XjaRWTD643A1dfnomojk6ijDpn3NAO"// this is not the place to put api key although
     companion object {
         fun getInstance(): ItemFragment {
             return ItemFragment()
@@ -32,7 +32,7 @@ class ItemFragment : Fragment() {
     private lateinit var binding: FragmentItemListBinding
 
     private fun addObserver() {
-        viewModel.shipmentStateLiveData.observe(viewLifecycleOwner) {
+        viewModel.liveData.observe(viewLifecycleOwner) {
             when (it) {
                 is ItemFragmentViewState.ShowLoader -> showLoader()
                 is ItemFragmentViewState.HideLoader -> hideLoader()

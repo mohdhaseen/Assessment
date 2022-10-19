@@ -1,8 +1,8 @@
-package com.example.assessment.view
+package com.example.sampleproject.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.assessment.R
+import com.example.sampleproject.R
 
 class MainActivity : AppCompatActivity() {
 

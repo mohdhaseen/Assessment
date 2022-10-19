@@ -1,4 +1,4 @@
-package com.example.assessment;
+package com.example.sampleproject;
 
 import org.junit.rules.TestRule;
 import org.junit.runner.Description;

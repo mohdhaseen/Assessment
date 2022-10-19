@@ -1,9 +1,8 @@
-package com.example.assessment.network
+package com.example.sampleproject.network
 
-import com.example.assessment.model.Response
+import com.example.sampleproject.model.Response
 import io.reactivex.Single
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**

@@ -21,6 +21,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            testCoverageEnabled true
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -58,5 +61,6 @@ dependencies {
     api "org.powermock:powermock-api-mockito2:${rootProject.powerMockVersion}"
     api "android.arch.core:core-testing:${rootProject.testCoreVersion}"
     api "io.mockk:mockk:${rootProject.mockKVersion}"
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
 
 }

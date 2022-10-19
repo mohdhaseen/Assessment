@@ -1,6 +1,6 @@
-package com.example.assessment.repository
+package com.example.sampleproject.repository
 
-import com.example.assessment.model.Response
+import com.example.sampleproject.model.Response
 import io.reactivex.Single
 
 /**
