@@ -1,11 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'org.jetbrains.kotlinx.kover'
 }
 
 android {
     compileSdk 32
-
+    flavorDimensions "default"
     defaultConfig {
         applicationId "com.example.assessment"
         minSdk 21
@@ -21,10 +22,17 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
-        debug {
-            testCoverageEnabled true
+    }
+
+    productFlavors {
+        prod {
+            applicationIdSuffix ".pro"
+        }
+        dev {
+            applicationIdSuffix ".dev"
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -35,7 +43,23 @@ android {
     buildFeatures {
         viewBinding true
     }
+
+    /*testOptions{
+        unitTests.all {
+           def myTasks = ["testDevDebugUnitTest", "testDevReleaseUnitTest", "testProdDebugUnitTest"].toList()
+            if (myTasks.contains(name)){
+               kover {
+                   enabled = false
+               }
+            }
+        }
+    }*/
+
 }
+
+kover {
+    //instrumentation {  excludeTasks.addAll("testDevDebugUnitTest", "testDevReleaseUnitTest", "testProdDebugUnitTest") }
+    filters { classes { includes.addAll("*.viewmodel.*") } } }
 
 dependencies {
 

@@ -8,6 +8,7 @@ import com.example.sampleproject.model.Response
 import com.example.sampleproject.repository.Repository
 import io.mockk.MockKAnnotations
 import io.mockk.every
+import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.RelaxedMockK
 import io.mockk.verify
 import io.reactivex.Single
@@ -20,6 +21,8 @@ import org.junit.runners.JUnit4
 
 @RunWith(JUnit4::class)
 class ItemFragmentViewModelTest {
+
+    @InjectMockKs
     private lateinit var viewModel: ItemFragmentViewModel
 
     @RelaxedMockK
@@ -37,9 +40,7 @@ class ItemFragmentViewModelTest {
     @Before
     fun before() {
         MockKAnnotations.init(this, relaxUnitFun = true)
-        viewModel = ItemFragmentViewModel(repository)
         viewModel.liveData.observeForever (stateObserver)
-
     }
 
     @Test
